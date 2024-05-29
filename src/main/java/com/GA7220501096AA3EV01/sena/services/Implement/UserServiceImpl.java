@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -19,8 +20,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserModel listById(int ID) {
-        return userRepository.findById(ID).get();
+    public UserModel listById(int id) {
+        return userRepository.findById(id).get();
     }
 
     @Override
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteById(int ID) {
-        userRepository.deleteById(ID);
+    public void deleteById(int id) {
+        userRepository.deleteById(id);
     }
 }

@@ -11,20 +11,12 @@ public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Codigo;
-    private int ID;
+    private int N_id;
     private String NOMBRE;
     private String APELLIDO;
     private String N_CELULAR;
     private String DIRECCION;
     private String PASSWORD;
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     public int getCodigo() {
         return Codigo;
@@ -32,6 +24,14 @@ public class UserModel {
 
     public void setCodigo(int codigo) {
         Codigo = codigo;
+    }
+
+    public int getN_id() {
+        return N_id;
+    }
+
+    public void setN_id(int n_id) {
+        N_id = n_id;
     }
 
     public String getNOMBRE() {

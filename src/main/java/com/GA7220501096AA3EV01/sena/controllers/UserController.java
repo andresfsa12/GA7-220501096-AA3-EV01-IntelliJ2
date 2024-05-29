@@ -1,19 +1,18 @@
 package com.GA7220501096AA3EV01.sena.controllers;
 
+
 import com.GA7220501096AA3EV01.sena.models.UserModel;
 import com.GA7220501096AA3EV01.sena.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.yaml.snakeyaml.events.Event;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/Acudiente")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
@@ -22,9 +21,9 @@ public class UserController {
         List<UserModel> Acudiente = userService.listAll();
         return ResponseEntity.ok(Acudiente);
     }
-    @GetMapping("/{ID}")
-    private ResponseEntity<?> listById(@PathVariable int ID){
-        UserModel userModel = userService.listById(ID);
+    @GetMapping("/{codigo}")
+    private ResponseEntity<?> listById(@PathVariable int codigo){
+        UserModel userModel = userService.listById(codigo);
         return ResponseEntity.ok(userModel);
     }
     @PostMapping
@@ -32,15 +31,15 @@ public class UserController {
         UserModel userCreate = userService.create(userModel);
         return ResponseEntity.ok(userCreate);
     }
-    @PutMapping("/{ID}")
-    private ResponseEntity<?> update(@PathVariable int ID, @RequestBody UserModel userModel){
-        userModel.setID(ID);
+    @PutMapping("/{codigo}")
+    private ResponseEntity<?> update(@PathVariable int codigo, @RequestBody UserModel userModel){
+        userModel.setCodigo(codigo);
         UserModel userUpdate = userService.update(userModel);
         return ResponseEntity.ok(userUpdate);
     }
-    @DeleteMapping ("/{ID}")
-    private ResponseEntity<?> deleteById(@PathVariable int ID){
-        userService.deleteById(ID);
+    @DeleteMapping ("/{codigo}")
+    private ResponseEntity<?> deleteById(@PathVariable int codigo){
+        userService.deleteById(codigo);
         return ResponseEntity.ok(null);
     }
 
