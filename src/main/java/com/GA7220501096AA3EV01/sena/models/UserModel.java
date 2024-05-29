@@ -1,25 +1,37 @@
 package com.GA7220501096AA3EV01.sena.models;
 
 import jakarta.persistence.*;
+import org.apache.catalina.User;
+
+import java.security.PrivateKey;
 
 @Entity
 @Table(name = "Acudiente")
 public class UserModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int Codigo;
+    private int ID;
     private String NOMBRE;
     private String APELLIDO;
     private String N_CELULAR;
     private String DIRECCION;
     private String PASSWORD;
 
-    public Long getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(Long ID) {
+    public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public int getCodigo() {
+        return Codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        Codigo = codigo;
     }
 
     public String getNOMBRE() {
@@ -62,4 +74,6 @@ public class UserModel {
         this.PASSWORD = PASSWORD;
     }
 }
+
+
 

@@ -3,9 +3,12 @@ package com.GA7220501096AA3EV01.sena.controllers;
 import com.GA7220501096AA3EV01.sena.models.UserModel;
 import com.GA7220501096AA3EV01.sena.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.yaml.snakeyaml.events.Event;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -15,32 +18,31 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public ArrayList<UserModel> getUsers(){
-        return this.userService.getUsers();
+    private ResponseEntity<?> listAll(){
+        List<UserModel> Acudiente = userService.listAll();
+        return ResponseEntity.ok(Acudiente);
+    }
+    @GetMapping("/{ID}")
+    private ResponseEntity<?> listById(@PathVariable int ID){
+        UserModel userModel = userService.listById(ID);
+        return ResponseEntity.ok(userModel);
     }
     @PostMapping
-    public UserModel saveUser(@RequestBody UserModel Acudiente){
-        return this.userService.saveUser(Acudiente);
+    private ResponseEntity<?> create(@RequestBody UserModel userModel){
+        UserModel userCreate = userService.create(userModel);
+        return ResponseEntity.ok(userCreate);
+    }
+    @PutMapping("/{ID}")
+    private ResponseEntity<?> update(@PathVariable int ID, @RequestBody UserModel userModel){
+        userModel.setID(ID);
+        UserModel userUpdate = userService.update(userModel);
+        return ResponseEntity.ok(userUpdate);
+    }
+    @DeleteMapping ("/{ID}")
+    private ResponseEntity<?> deleteById(@PathVariable int ID){
+        userService.deleteById(ID);
+        return ResponseEntity.ok(null);
     }
 
-    @GetMapping(path = "/{ID}")
-    public Optional<UserModel> getUserById(@PathVariable("ID") Long ID){
-        return this.userService.getById(ID);
-    }
-    //Sigue linea de editar
-    @PutMapping(path = "/{ID}")
-    public UserModel updateUserById(@RequestBody UserModel request,@PathVariable("ID") Long ID){
-        return this.userService.updateById(request, ID);
-    }
 
-    @DeleteMapping(path = "/{ID}")
-    public String deleteById(@PathVariable("ID")Long ID){
-        boolean ok = this.userService.deleteUser(ID);
-        if (ok){
-            return "User with ID"+ID+"deleted";
-        }
-        else {
-            return "Error, tenemos un problema y no podemos borrar el usuario con ID "+ID;
-        }
-    }
 }
