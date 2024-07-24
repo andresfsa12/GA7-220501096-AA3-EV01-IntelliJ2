@@ -1,6 +1,4 @@
 package com.GA7220501096AA3EV01.sena.controllers;
-
-
 import com.GA7220501096AA3EV01.sena.models.UserModel;
 import com.GA7220501096AA3EV01.sena.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +40,4 @@ public class UserController {
         userService.deleteById(codigo);
         return ResponseEntity.ok(null);
     }
-
-
 }

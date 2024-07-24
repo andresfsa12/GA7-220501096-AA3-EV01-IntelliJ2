@@ -17,6 +17,7 @@ public class UserModel {
     private String N_CELULAR;
     private String DIRECCION;
     private String PASSWORD;
+    private String Email;
 
     public int getCodigo() {
         return Codigo;
@@ -72,6 +73,13 @@ public class UserModel {
 
     public void setPASSWORD(String PASSWORD) {
         this.PASSWORD = PASSWORD;
+    }
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 }
 
