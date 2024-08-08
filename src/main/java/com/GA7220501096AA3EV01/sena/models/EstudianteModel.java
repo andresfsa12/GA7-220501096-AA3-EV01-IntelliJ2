@@ -18,7 +18,7 @@ public class EstudianteModel {
     private String Genero;
     private String Direccion;
     private int Codigo_Grado;
-    private String Codigo_Acudiente;
+    private int Codigo_Acudiente;
 
     public int getCodigo() {
         return Codigo;
@@ -84,11 +84,11 @@ public class EstudianteModel {
         Codigo_Grado = codigo_Grado;
     }
 
-    public String getCodigo_Acudiente() {
+    public int getCodigo_Acudiente() {
         return Codigo_Acudiente;
     }
 
-    public void setCodigo_Acudiente(String codigo_Acudiente) {
+    public void setCodigo_Acudiente(int codigo_Acudiente) {
         Codigo_Acudiente = codigo_Acudiente;
     }
 }
