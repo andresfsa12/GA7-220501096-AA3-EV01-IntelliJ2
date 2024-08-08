@@ -17,31 +17,31 @@ public class DocenteController {
 
     @GetMapping
     private ResponseEntity<?> ListAll(){
-        List<DocenteModel> docenteModel = docenteService.listAll();
+        List<DocenteModel> docenteModel = docenteService.All();
         return ResponseEntity.ok(docenteModel);
     }
-    @GetMapping("/{id}")
-    private ResponseEntity<?> listById(@PathVariable int id){
-        DocenteModel docenteModel = docenteService.listById(id);
+    @GetMapping("/{codigo}")
+    private ResponseEntity<?> listById(@PathVariable int codigo){
+        DocenteModel docenteModel = docenteService.listById(codigo);
         return ResponseEntity.ok(docenteModel);
     }
 
     @PostMapping
     private ResponseEntity<?> create(@RequestBody DocenteModel docenteModel){
-
         DocenteModel docenteCreate = docenteService.create(docenteModel);
         return ResponseEntity.ok(docenteCreate);
+
     }
 
-    @PutMapping("/{id}")
-    private ResponseEntity<?> update (@PathVariable int id, @RequestBody DocenteModel docenteModel){
-        docenteModel.setId(id);
+    @PutMapping("/{codigo}")
+    private ResponseEntity<?> update (@PathVariable int codigo, @RequestBody DocenteModel docenteModel){
+        docenteModel.setCodigo(codigo);
         DocenteModel docenteUpdate = docenteService.update(docenteModel);
         return ResponseEntity.ok(docenteUpdate);
     }
-    @DeleteMapping("/{id}")
-    private ResponseEntity<?> deleteById(@PathVariable int id){
-        docenteService.deleteById(id);
+    @DeleteMapping("/{codigo}")
+    private ResponseEntity<?> deleteById(@PathVariable int codigo){
+        docenteService.deleteById(codigo);
         return ResponseEntity.ok(null);
     }
 

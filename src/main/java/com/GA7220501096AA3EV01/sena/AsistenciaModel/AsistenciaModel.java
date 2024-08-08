@@ -13,7 +13,7 @@ public class AsistenciaModel {
     private int Codigo;
     private Date Fecha;
     private int Codigo_Estudiante;
-    private int ID_docente;
+    private int Codigo_docente;
     private int Codigo_Materia;
 
     public int getCodigo() {
@@ -40,12 +40,12 @@ public class AsistenciaModel {
         Codigo_Estudiante = codigo_Estudiante;
     }
 
-    public int getID_docente() {
-        return ID_docente;
+    public int getCodigo_docente() {
+        return Codigo_docente;
     }
 
-    public void setID_docente(int ID_docente) {
-        this.ID_docente = ID_docente;
+    public void setCodigo_docente(int codigo_docente) {
+        Codigo_docente = codigo_docente;
     }
 
     public int getCodigo_Materia() {

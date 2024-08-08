@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface DocenteService {
 
-    List<DocenteModel> listAll();
-    DocenteModel listById (int id);
+    List<DocenteModel> All();
+    DocenteModel listById (int codigo);
     DocenteModel create(DocenteModel docenteModel);
     DocenteModel update(DocenteModel docenteModel);
-    void deleteById(int id);
+    void deleteById(int codigo);
 }

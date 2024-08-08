@@ -10,7 +10,8 @@ public class DocenteModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int Codigo;
+    private int Id_Docente;
     private String Nombres;
     private String Apellidos;
     private Date Fecha_Nacimiento;
@@ -20,12 +21,20 @@ public class DocenteModel {
     private String Ciudad;
     private String Celular;
 
-    public int getId() {
-        return Id;
+    public int getCodigo() {
+        return Codigo;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setCodigo(int codigo) {
+        Codigo = codigo;
+    }
+
+    public int getId_Docente() {
+        return Id_Docente;
+    }
+
+    public void setId_Docente(int id_Docente) {
+        Id_Docente = id_Docente;
     }
 
     public String getNombres() {

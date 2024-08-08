@@ -16,13 +16,13 @@ public class DocenteServiceImplement implements DocenteService{
     private DocenteRepository docenteRepository;
 
     @Override
-    public List<DocenteModel> listAll() {
+    public List<DocenteModel> All() {
         return docenteRepository.findAll();
     }
 
     @Override
-    public DocenteModel listById(int id) {
-        return docenteRepository.findById(id).get();
+    public DocenteModel listById(int codigo) {
+        return docenteRepository.findById(codigo).get();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DocenteServiceImplement implements DocenteService{
     }
 
     @Override
-    public void deleteById(int id) {
-        docenteRepository.deleteById(id);
+    public void deleteById(int codigo) {
+        docenteRepository.deleteById(codigo);
     }
 }
