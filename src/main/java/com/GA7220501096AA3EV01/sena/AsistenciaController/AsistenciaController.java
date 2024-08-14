@@ -17,13 +17,13 @@ public class AsistenciaController {
 
     @GetMapping
     private ResponseEntity<?> ListAll(){
-        List<AsistenciaModel> asistenciaModel = asistenciaService.listAll();
+        List<AsistenciaModel> asistenciaModel = asistenciaService.All();
         return ResponseEntity.ok(asistenciaModel);
     }
 
-    @GetMapping("/{Codigo}")
-    private ResponseEntity<?> listById(@PathVariable int Codigo){
-        AsistenciaModel asistenciaModel = asistenciaService.listById(Codigo);
+    @GetMapping("/{codigo}")
+    private ResponseEntity<?> listById(@PathVariable int codigo){
+        AsistenciaModel asistenciaModel = asistenciaService.listById(codigo);
         return ResponseEntity.ok(asistenciaModel);
     }
 
@@ -34,15 +34,15 @@ public class AsistenciaController {
         return ResponseEntity.ok(asistenciaCreate);
     }
 
-    @PutMapping("/{Codigo}")
-    private ResponseEntity<?> update (@PathVariable int Codigo, @RequestBody AsistenciaModel asistenciaModel){
-        asistenciaModel.setCodigo(Codigo);
+    @PutMapping("/{codigo}")
+    private ResponseEntity<?> update (@PathVariable int codigo, @RequestBody AsistenciaModel asistenciaModel){
+        asistenciaModel.setCodigo(codigo);
         AsistenciaModel asistenciaUpdate = asistenciaService.update(asistenciaModel);
         return ResponseEntity.ok(asistenciaUpdate);
     }
-    @DeleteMapping("/{Codigo}")
-    private ResponseEntity<?> deleteById(@PathVariable int Codigo){
-        asistenciaService.deleteById(Codigo);
+    @DeleteMapping("/{codigo}")
+    private ResponseEntity<?> deleteById(@PathVariable int codigo){
+        asistenciaService.deleteById(codigo);
         return ResponseEntity.ok(null);
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AsistenciaService {
 
-    List<AsistenciaModel> listAll();
+    List<AsistenciaModel> All();
     AsistenciaModel listById(int codigo);
     AsistenciaModel create(AsistenciaModel asistenciaModel);
     AsistenciaModel update(AsistenciaModel asistenciaModel);

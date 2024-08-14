@@ -16,13 +16,13 @@ public class AsistenciaServiceImplement implements AsistenciaService {
     private AsistenciaRepository asistenciaRepository;
 
     @Override
-    public List<AsistenciaModel> listAll() {
+    public List<AsistenciaModel> All() {
         return asistenciaRepository.findAll();
     }
 
     @Override
-    public AsistenciaModel listById(int id) {
-        return asistenciaRepository.findById(id).get();
+    public AsistenciaModel listById(int codigo) {
+        return asistenciaRepository.findById(codigo).get();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class AsistenciaServiceImplement implements AsistenciaService {
     }
 
     @Override
-    public void deleteById(int id) {
-    asistenciaRepository.deleteById(id);
+    public void deleteById(int codigo) {
+    asistenciaRepository.deleteById(codigo);
     }
 }
